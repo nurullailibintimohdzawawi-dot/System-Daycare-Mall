@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
-      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)"
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\react-app/**)",
+      "Bash(npm run dev:*)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src\\components/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src\\components/**)"
     ],
     "deny": [],
     "ask": []

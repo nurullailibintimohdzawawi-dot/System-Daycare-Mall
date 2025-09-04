@@ -1,0 +1,241 @@
+.time-clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.time-clock-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.selected-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  min-width: 200px;
+}
+
+.time-display {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.time-range {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.ampm-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.ampm-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.clock-face {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 3px solid #3498db;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 
+    0 0 20px rgba(52, 152, 219, 0.2),
+    inset 0 0 20px rgba(52, 152, 219, 0.1);
+  cursor: grab;
+  user-select: none;
+}
+
+.clock-face:active {
+  cursor: grabbing;
+}
+
+.hour-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #2c3e50;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.minute-marker {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform-origin: bottom center;
+  pointer-events: none;
+}
+
+.minute-marker.major {
+  width: 2px;
+  height: 15px;
+  background: #34495e;
+  margin-left: -1px;
+}
+
+.minute-marker.minor {
+  width: 1px;
+  height: 8px;
+  background: #bdc3c7;
+  margin-left: -0.5px;
+}
+
+.clock-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.clock-hand::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(to top, #2c3e50, #34495e);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hour-hand::before {
+  width: 4px;
+  height: 60px;
+  margin-left: -2px;
+}
+
+.minute-hand::before {
+  width: 2px;
+  height: 80px;
+  margin-left: -1px;
+  background: linear-gradient(to top, #e74c3c, #c0392b);
+}
+
+.hand-grip {
+  position: absolute;
+  border-radius: 50%;
+  cursor: grab;
+  pointer-events: auto;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.hand-grip:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+}
+
+.hand-grip:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.hour-grip {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  top: -50px;
+  left: 50%;
+  margin-left: -8px;
+  border: 2px solid white;
+}
+
+.minute-grip {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  top: -70px;
+  left: 50%;
+  margin-left: -6px;
+  border: 2px solid white;
+}
+
+.clock-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  border: 3px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .clock-face {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .selected-time {
+    min-width: 180px;
+  }
+  
+  .time-display {
+    font-size: 1.5rem;
+  }
+  
+  .hour-number {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Animation for smooth hand movement */
+.clock-hand.smooth {
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Focus indicators for accessibility */
+.hand-grip:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.ampm-toggle:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 1px;
+}
