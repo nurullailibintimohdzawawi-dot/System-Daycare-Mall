@@ -13,7 +13,15 @@
       "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
       "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
       "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
-      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src\\components/**)"
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src\\components/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\src\\components/**)",
+      "Read(/C:\\Users\\hp\\Desktop\\Website_intern\\Testing_1\\public/**)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
