@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidZone Daycare - Mall Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>🏫 KidZone Daycare</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#services">Our Services</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>🌈 Safe & Fun Daycare at the Mall! 🌈</h1>
+                <p>👶 Professional childcare while you shop! Book your appointment online and enjoy peace of mind knowing your little ones are in caring hands. 👶</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToBooking()">Book Appointment 📅</button>
+                    <button class="btn btn-secondary" onclick="scrollToBooking()">Learn More 👶</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking">
+            <div class="container">
+                <h2>📅 Book Your Daycare Appointment</h2>
+                <div class="booking-container">
+                    <form class="booking-form" id="daycareBookingForm">
+                        <div class="form-section">
+                            <h3>👨‍👩‍👧‍👦 Parent Information</h3>
+                            <div class="form-row">
+                                <input type="text" id="parentName" placeholder="Parent/Guardian Name *" required>
+                                <input type="tel" id="parentPhone" placeholder="Phone Number *" required>
+                            </div>
+                            <input type="email" id="parentEmail" placeholder="Email Address *" required>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>👶 Child Information</h3>
+                            <div class="form-row">
+                                <input type="text" id="childName" placeholder="Child's Name *" required>
+                                <input type="number" id="childAge" placeholder="Age *" min="6" max="144" required>
+                            </div>
+                            <div class="form-row">
+                                <select id="childGender" required>
+                                    <option value="">Select Gender *</option>
+                                    <option value="male">Boy</option>
+                                    <option value="female">Girl</option>
+                                </select>
+                                <input type="text" id="emergencyContact" placeholder="Emergency Contact *" required>
+                            </div>
+                            <textarea id="specialNeeds" placeholder="Special needs, allergies, or important notes..." rows="3"></textarea>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>📅 Appointment Details</h3>
+                            <div class="form-row">
+                                <input type="date" id="appointmentDate" required>
+                                <select id="timeSlot" required>
+                                    <option value="">Select Time Slot *</option>
+                                    <option value="09:00-11:00">9:00 AM - 11:00 AM (2 hours)</option>
+                                    <option value="10:00-12:00">10:00 AM - 12:00 PM (2 hours)</option>
+                                    <option value="11:00-13:00">11:00 AM - 1:00 PM (2 hours)</option>
+                                    <option value="12:00-14:00">12:00 PM - 2:00 PM (2 hours)</option>
+                                    <option value="13:00-15:00">1:00 PM - 3:00 PM (2 hours)</option>
+                                    <option value="14:00-16:00">2:00 PM - 4:00 PM (2 hours)</option>
+                                    <option value="15:00-17:00">3:00 PM - 5:00 PM (2 hours)</option>
+                                    <option value="16:00-18:00">4:00 PM - 6:00 PM (2 hours)</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <select id="duration" required>
+                                    <option value="">Duration *</option>
+                                    <option value="1">1 Hour</option>
+                                    <option value="2">2 Hours</option>
+                                    <option value="3">3 Hours</option>
+                                    <option value="4">4 Hours</option>
+                                    <option value="full-day">Full Day (8 hours)</option>
+                                </select>
+                                <input type="text" id="pickupPerson" placeholder="Pickup Person Name *" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="agreeTerms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the daycare terms and conditions
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="mediaConsent">
+                                    <span class="checkmark"></span>
+                                    I consent to photos/videos for daycare activities (optional)
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            🎯 Get My Pickup Number
+                        </button>
+                        
+                        <div id="bookingConfirmation" class="booking-confirmation" style="display: none;">
+                            <div class="pickup-number">
+                                <h3>🎉 Booking Confirmed!</h3>
+                                <div class="number-display">
+                                    <span class="pickup-label">Your Pickup Number:</span>
+                                    <span class="pickup-number-value" id="pickupNumberDisplay"></span>
+                                </div>
+                                <p><strong>Please save this number!</strong><br>
+                                Show this number when picking up your child.</p>
+                                <button class="btn btn-secondary" onclick="printTicket()">Print Ticket 🎫</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="booking-info">
+                        <div class="info-card">
+                            <h4>📍 Location</h4>
+                            <p>Central Mall, Level 2<br>Next to Food Court</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>🕒 Operating Hours</h4>
+                            <p>Monday - Sunday<br>9:00 AM - 6:00 PM</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>👶 Age Range</h4>
+                            <p>6 months - 12 years<br>Professional supervision</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>🆓 Free Service</h4>
+                            <p>Completely FREE daycare<br>No charges, just book!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>Strategy</h3>
+                        <p>Comprehensive business strategy development to accelerate your growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>Cutting-edge solutions tailored to your unique business needs.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Growth</h3>
+                        <p>Scalable systems and processes to support your expansion goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>📧 info@yourbrand.com</p>
+                        <p>📞 (555) 123-4567</p>
+                        <p>📍 123 Business Street, City, State 12345</p>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 YourBrand. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
